@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_bootstrap5',
     'app_blog',
 ]
 
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'proyecto_blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["app_blog/templates/app_blog"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

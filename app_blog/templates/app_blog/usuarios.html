@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block style_block %}
+<style>
+    table.coder-table {
+        border:3px solid;
+    }
+    th,
+    td {
+        border:1px solid;
+        padding:5px 10px;
+    }
+</style>
+{% endblock style_block %}
+
+{% block changing_content %}
+
+<h1>Usuarios</h1>
+<a class="btn btn-outline-primary" href="{% url 'crear_usuario' %}" role="button">Crear usuario!</a>
+<br />
+<br />
+<a class="btn btn-outline-info" href="{% url 'buscar_usuario_form' %}" role="button">Buscar Usuario</a>
+
+<br><br>
+<h3>Usuarios:</h3>
+
+<table class="table table-striped">
+    <tbody>
+        <tr>
+            <th>
+                <strong>Nombre</strong>
+            </th>
+            <th>
+                <strong>Apellido</strong>
+            </th>
+            <th>
+                <strong>Nombre de usuario</strong>
+            </th>
+            <th>
+                <strong>Correo</strong>
+            </th>
+            <th>
+                <strong>Fecha de creación</strong>
+            </th>
+        </tr>
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.apellido}}</td>
+            <td>{{usuario.nombre_usuario}}</td>
+            <td>{{usuario.correo}}</td>
+            <td>{{usuario.fecha_creacion}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock changing_content %}
