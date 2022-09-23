@@ -1,5 +1,6 @@
 from datetime import datetime
 from django.db import models
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Usuario(models.Model):
@@ -16,7 +17,7 @@ class Usuario(models.Model):
 
 class Post(models.Model):
     titulo = models.CharField(max_length=50)
-    contenido = models.TextField()
+    contenido = RichTextField(blank=True, null=True)
     fecha_creacion = models.DateField(auto_now_add=True)
     usuario_id = models.ForeignKey('Usuario', on_delete=models.CASCADE)
 

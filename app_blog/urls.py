@@ -4,7 +4,7 @@ from app_blog import views
 
 urlpatterns = [
     #Main URL
-    path('', views.inicio, name="inicio"),
+    path('', views.blog, name="home"),
 
     #URL's user
     path('usuario/', views.usuario, name="usuario"),
@@ -17,4 +17,10 @@ urlpatterns = [
 
     #URL's comentario
     path('crear_comentario/', views.comentario_formulario, name="crear_comentario"),
+
+    #URL's about
+    path('about/', views.about, name="about"),
+
+    #URL's my account
+    path('login/', views.login, name="login"),
 ]

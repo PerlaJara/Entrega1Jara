@@ -1,3 +1,4 @@
+import re
 from typing import Dict
 
 from django.shortcuts import render
@@ -9,9 +10,20 @@ from app_blog.forms import *
 def inicio(request):
     return render(request, "app_blog/base.html")
 
+def about(request):
+    return render(request, "app_blog/about.html")
+
+def blog(request):
+    blogs = Post.objects.all()
+
+    return render(request, "app_blog/inicio.html", {'blogs' : blogs})
+
+def login(request):
+    return render(request, "app_blog/login.html")
+
 def usuario(request):
     usuarios = Usuario.objects.all()
-    return render(request, "app_blog/usuarios.html", {'usuarios': usuarios})
+    return render(request, "app_blog/usuarios.html", {'usuarios' : usuarios})
 
 def usuario_formulario(request):
     if request.method == 'POST':

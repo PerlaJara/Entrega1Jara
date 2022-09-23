@@ -1,5 +1,6 @@
 from django import forms
 from app_blog.models import *
+from ckeditor.widgets import CKEditorWidget
 
 class UsuarioFormulario(forms.Form):
     nombre = forms.CharField(max_length=100)
@@ -10,8 +11,7 @@ class UsuarioFormulario(forms.Form):
 
 class PostFormulario(forms.Form):
     titulo = forms.CharField(max_length=50)
-    contenido = forms.CharField(widget=forms.Textarea)
-    usuario_id = forms.ModelChoiceField(queryset=Usuario.objects.all())
+    contenido = forms.CharField(widget=CKEditorWidget())
 
 class ComentarioFormulario(forms.Form):
     nombre_usuario = forms.CharField(max_length=100)
